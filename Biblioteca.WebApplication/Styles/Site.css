@@ -249,7 +249,13 @@ div.accountInfo
     display: block;
     float: left;
     text-align: left;
-    width: auto;
+    width: 100%;
+	z-index: 9999999;
+	background: url(../img/alert-lines.png) repeat-x scroll left top #fff;
+    background-color: cornflowerblue;
+	color: darkcyan;
+	border-color: darkcyan;
+
 }
 
 .loginDisplay

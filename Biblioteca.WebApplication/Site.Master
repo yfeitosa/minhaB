@@ -19,8 +19,6 @@
                     Biblioteca .NET
                 </h1>
             </div>
-            <div class="loginDisplay">
-            </div>
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False"
                     IncludeStyleBlock="False" Orientation="Horizontal" BackColor="#F7F6F3" DynamicHorizontalOffset="2"
