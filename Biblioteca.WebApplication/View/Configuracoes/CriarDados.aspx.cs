@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Biblioteca.Dominio.Entidades;
 using Biblioteca.Dominio.Servicos;
 using Biblioteca.NHibernate.NHibernateHelpers;
+using Castle.Components.DictionaryAdapter;
 using NHibernate.Criterion;
 
 namespace Biblioteca.WebApplication.View.Configuracoes
@@ -84,7 +85,15 @@ namespace Biblioteca.WebApplication.View.Configuracoes
 
             foreach (var estante in listaAtualizada)
             {
-                estante.Prateleiras = null;
+                estante.Prateleiras = new List<Prateleira>();
+                //IList<Prateleira> buscarPrateleira = _administradorServico.PesquisarPrateleiras();
+                //foreach (var prateleira in buscarPrateleira)
+                //{
+                //    if (estante.Id == prateleira.Estante.Id)
+                //    {
+                //        estante.Prateleiras.Add(prateleira);
+                //    }
+                //}
             }
 
             return listaAtualizada;
