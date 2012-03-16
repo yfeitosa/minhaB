@@ -105,13 +105,14 @@
             var request = $.ajax({
                 type: "POST",
                 url: "CriarDados.aspx?InserirAutor=1",
+                    clearForm: true,
                 data: dados
             });
 
             request.done(function (data) {
                 $("#divResultado").html(data);
                 noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-                $("#txbAutor").val('');
+                //$("#txbAutor").val('');
             });
 
             request.fail(function (jqXHR, textStatus) {
