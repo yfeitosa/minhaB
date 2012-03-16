@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-        <link href="~/Styles/jquery.noty.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/jquery.noty.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -30,11 +30,12 @@
                     <DynamicSelectedStyle BackColor="#5D7B9D" />
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx " Text="Home" Value="0" />
-                        <asp:MenuItem Text="Visualizar Dados" Value="1" NavigateUrl="~/View/Estantes.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Visualizar Dados" Value="1" NavigateUrl="~/View/Estantes.aspx">
+                        </asp:MenuItem>
                         <asp:MenuItem Text="Configurações" Value="2" Selectable="False">
                             <asp:MenuItem NavigateUrl="~/View/Configuracoes/InserirDados.aspx" Text="Inserir Dados Teste"
                                 Value="3"></asp:MenuItem>
-                                 <asp:MenuItem NavigateUrl="~/View/Configuracoes/InserirDadosFormulario.aspx" Text="Inserir Dados Customizado"
+                            <asp:MenuItem NavigateUrl="~/View/Configuracoes/InserirDadosFormulario.aspx" Text="Inserir Dados Customizado"
                                 Value="4"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
@@ -50,8 +51,13 @@
         <div class="clear">
         </div>
     </div>
+    <center>
     <div class="footer">
+        <marquee behavior="slide" direction="right" height="60" width="80%" hspace="5" vspace="5">
+<b>Developed by : Fabio Rattis and Yuri Feitosa</b>
+</marquee>
     </div>
+    </center>
     </form>
 </body>
 </html>

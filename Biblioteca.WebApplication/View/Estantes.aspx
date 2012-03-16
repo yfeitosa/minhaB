@@ -51,10 +51,10 @@
                 </asp:GridView>
             </div>
         </div>
-        <div style="padding-right: 4px;">
+        <div style="float: left; padding-right: 4px; ">
             <h4>
                 <strong>Autores</strong></h4>
-            <div class="tgl">
+            <div class="tgl" style=position:fixed;">
                 <asp:GridView ID="grvAutores" runat="server" CellPadding="4" ForeColor="#333333"
                     GridLines="None" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />

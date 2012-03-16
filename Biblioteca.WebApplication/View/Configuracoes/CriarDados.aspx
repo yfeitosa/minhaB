@@ -36,7 +36,6 @@
             </select>
         </div>
     </div>
-    <br />
     <asp:Button ID="ButtonVoltar" runat="server" OnClick="ButtonVoltar_Click" Text="Voltar" />
     <br />
     <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
@@ -169,7 +168,6 @@
         //            box.value = "";
         //            box.focus();
         //        }
-
-
+        
     </script>
 </asp:Content>
