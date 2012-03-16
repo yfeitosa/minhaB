@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using Biblioteca.Dominio.Entidades;
 using Biblioteca.Dominio.Servicos;
-using Biblioteca.NHibernate.NHibernateHelpers;
-using Castle.Components.DictionaryAdapter;
-using NHibernate.Criterion;
 
 namespace Biblioteca.WebApplication.View.Configuracoes
 {
@@ -15,7 +12,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
         protected void Page_Init(object sender, EventArgs e)
         {
             CriarContainer();
-            CarregarDados();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,8 +32,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                     CriarContainer();
 
                 _administradorServico.InserirEstante(Request.Form["Categoria"].ToString());
-                //Response.Write("sucesso");
-                //Response.End();
+                Response.Write("sucesso");
+                Response.End();
             }
 
             if (Request["InserirPrateleira"] != null)
@@ -60,13 +56,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             _administradorServico = container.Resolve<IAdministradorServico>();
         }
 
-
-        public void CarregarDados()
-        {
-            //DropDownListEstante.DataSource = _administradorServico.PesquisarEstantes();
-            //DropDownListEstante.DataBind();
-        }
-
         protected void ButtonVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/View/Configuracoes/InserirDadosFormulario.aspx");
@@ -86,14 +75,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             foreach (var estante in listaAtualizada)
             {
                 estante.Prateleiras = new List<Prateleira>();
-                //IList<Prateleira> buscarPrateleira = _administradorServico.PesquisarPrateleiras();
-                //foreach (var prateleira in buscarPrateleira)
-                //{
-                //    if (estante.Id == prateleira.Estante.Id)
-                //    {
-                //        estante.Prateleiras.Add(prateleira);
-                //    }
-                //}
             }
 
             return listaAtualizada;

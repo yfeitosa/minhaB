@@ -71,13 +71,19 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\add.png" />
     <Content Include="img\alert-lines.png" />
+    <Content Include="img\back.png" />
     <Content Include="img\closelabel.png" />
+    <Content Include="img\main-menu.png" />
     <Content Include="img\mitgux\alert.png" />
     <Content Include="img\mitgux\bg.png" />
     <Content Include="img\mitgux\close.png" />
     <Content Include="img\mitgux\done.png" />
     <Content Include="img\mitgux\error.png" />
+    <Content Include="img\save-as.png" />
+    <Content Include="img\search.gif" />
+    <Content Include="img\view_text.png" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.noty.js" />
     <Content Include="Styles\jquery.noty.css" />
