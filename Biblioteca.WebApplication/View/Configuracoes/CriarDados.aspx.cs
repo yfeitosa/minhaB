@@ -11,6 +11,12 @@ namespace Biblioteca.WebApplication.View.Configuracoes
     {
         private IAdministradorServico _administradorServico;
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            CriarContainer();
+            CarregarDados();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["InserirAutor"] != null)
@@ -29,8 +35,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                     CriarContainer();
 
                 _administradorServico.InserirEstante(Request.Form["Categoria"].ToString());
-                Response.Write("sucesso");
-                Response.End();
+                //Response.Write("sucesso");
+                //Response.End();
             }
 
             if (Request["InserirPrateleira"] != null)
@@ -45,14 +51,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                 Response.End();
             }
 
-            if (Request["CarregarEstante"] != null)
-            {
-                //TODO: fazer com que o drop seja atualizado com esse novo registro.
-                //CarregarDados();
-                //Response.Write("sucesso");
-                //Response.End();
-            }
-
         }
 
         private void CriarContainer()
@@ -61,16 +59,11 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             _administradorServico = container.Resolve<IAdministradorServico>();
         }
 
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            CriarContainer();
-            CarregarDados();
-        }
 
         public void CarregarDados()
         {
-            DropDownListEstante.DataSource = _administradorServico.PesquisarEstantes();
-            DropDownListEstante.DataBind();
+            //DropDownListEstante.DataSource = _administradorServico.PesquisarEstantes();
+            //DropDownListEstante.DataBind();
         }
 
         protected void ButtonVoltar_Click(object sender, EventArgs e)
@@ -80,6 +73,21 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             Response.End();
         }
 
+        [System.Web.Services.WebMethod]
+        public static IList<Estante> CarregarListaEstantes()
+        {
+            IAdministradorServico _administradorServico;
+            var container = Global.InicializarContainer();
+            _administradorServico = container.Resolve<IAdministradorServico>();
 
+            IList<Estante> listaAtualizada =  _administradorServico.PesquisarEstantes();
+
+            foreach (var estante in listaAtualizada)
+            {
+                estante.Prateleiras = null;
+            }
+
+            return listaAtualizada;
+        }
     }
 }

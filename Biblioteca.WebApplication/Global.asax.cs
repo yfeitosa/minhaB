@@ -11,6 +11,8 @@ namespace Biblioteca.WebApplication
     public class Global : System.Web.HttpApplication
     {
         private static WindsorContainer _container;
+        private IAdministradorServico _administradorServico;
+
 
         public static WindsorContainer InicializarContainer()
         {
@@ -34,8 +36,11 @@ namespace Biblioteca.WebApplication
 
         void Application_Start(object sender, EventArgs e)
         {
-           
+            var container =  Global.InicializarContainer();
+            _administradorServico = container.Resolve<IAdministradorServico>();
 
+            _administradorServico.AutoCriarBancoDeDados();
+            _administradorServico.InserirDados();
         }
 
         void Application_End(object sender, EventArgs e)

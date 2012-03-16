@@ -58,9 +58,10 @@
                 Estante
             </td>
             <td>
-                <asp:DropDownList ID="DropDownListEstante" runat="server" DataTextField="Categoria"
+                <%--<asp:DropDownList ID="DropDownListEstante" runat="server" DataTextField="Categoria"
                     DataValueField="Id" ViewStateMode="Disabled" Height="16px">
-                </asp:DropDownList>
+                </asp:DropDownList>--%>
+                <select ID="DropDownListEstante" ></select>
             </td>
         </tr>
     </table>
@@ -69,6 +70,31 @@
     <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
     <script src="././././../../Scripts/jquery.noty.js" type="text/javascript"> </script>
     <script type="text/javascript">
+        $(document).ready(function () {
+            CarregarLista();
+        });
+
+        function CarregarLista() {
+            var dados = {};
+            var request = $.ajax({
+                type: "POST",
+                url: "CriarDados.aspx/CarregarListaEstantes",
+                data: dados,
+                contentType: "application/json"                    
+            });
+
+            request.done(function (data) {
+                $("#DropDownListEstante").find("option").remove();
+                $.each(data.d, function (index, value) {
+                    $('#DropDownListEstante').append("<option value='" + value.Id + "'>" + value.Categoria + "</option>");
+                });
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+            });
+
+        }
 
         $("#btInsAutor").click(function () {
 
@@ -106,10 +132,11 @@
             });
 
             request.done(function (data) {
+                CarregarLista();
                 $("#divResultado").html(data);
                 noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-                //$("#txbEstante").val('');
-                AddItemInList();
+                $("#txbEstante").val('');
+
             });
 
             request.fail(function (jqXHR, textStatus) {
@@ -134,7 +161,7 @@
                 $("#divResultado").html(data);
                 noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
                 $("#txbPrateleira").val('');
-                $("#DropDownListEstante").val(0);
+                $("#DropDownListEstante").val('');
             });
 
             request.fail(function (jqXHR, textStatus) {
@@ -142,17 +169,17 @@
             });
         });
 
-        function AddItemInList() {
-            var list = document.getElementById('DropDownListEstante');
-            var box = document.getElementById('txbEstante');
-            var newListItem = document.createElement('OPTION');
+//        function AddItemInList() {
+//            var list = document.getElementById('DropDownListEstante');
+//            var box = document.getElementById('txbEstante');
+//            var newListItem = document.createElement('OPTION');
 
-            newListItem.text = box.value;
-            newListItem.value = box.value;
-            list.add(newListItem);
+//            newListItem.text = box.value;
+//            newListItem.value = box.value;
+//            list.add(newListItem);
 
-            box.value = "";
-            box.focus();
-        }
+//            box.value = "";
+//            box.focus();
+//        }
     </script>
 </asp:Content>

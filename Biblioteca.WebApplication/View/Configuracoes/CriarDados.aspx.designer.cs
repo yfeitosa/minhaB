@@ -22,15 +22,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes {
         protected global::System.Web.UI.WebControls.TextBox txbPrateleira;
         
         /// <summary>
-        /// DropDownListEstante control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstante;
-        
-        /// <summary>
         /// ButtonVoltar control.
         /// </summary>
         /// <remarks>

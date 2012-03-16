@@ -115,14 +115,14 @@ div.noty_modal {
 	border-color: #ccc;
 }
 .noty_bar.error {
-	background-color: red;
-	color: #fff;
+	background-color: lightcoral;
+	color: darkred;
 	border-color: darkred;
 }
 .noty_bar.success {
-	background-color: lightgreen;
-	color: darkgreen;
-	border-color: darkgreen;
+	background-color: lightskyblue;
+	color: darkcyan;
+	border-color: darkcyan;
 }
 
 /* Layout: Top Center */
@@ -172,11 +172,11 @@ div.noty_modal {
 	border: 1px solid #E64906;
 }
 .noty_bar.topCenter.success .noty_message {
-	background-color: #8FEC8F;
-	border: 1px solid #50C24E;	
+	background-color: lightblue;
+	border: 1px solid darkcyan;	
 }
 .noty_bar.topCenter.success .noty_close {
-	border: 1px solid #50C24E;
+	border: 1px solid cyan;
 }
 .noty_bar.topCenter .noty_message .noty_buttons {
 	margin-left: 15px;

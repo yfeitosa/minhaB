@@ -7,12 +7,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
     {
        private IAdministradorServico _administradorServico;
 
-        public void Inserir()
-        {
-
-        }
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["Inserir"] != null)
