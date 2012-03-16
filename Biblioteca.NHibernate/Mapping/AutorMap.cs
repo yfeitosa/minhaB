@@ -7,12 +7,14 @@ namespace Biblioteca.NHibernate.Mapping
     {
         public AutorMap()
         {
-            Id(x => x.Id).Column("Id").GeneratedBy.Native();
+            Table("tb_autor");
+            Id(x => x.Id).Column("cod_autor").GeneratedBy.Native();
 
-            Map(x => x.Nome);
-            Map(x => x.Data_Criacao);
+            Map(x => x.Nome).Not.Nullable().Length(100);
+            Map(x => x.Data_Criacao).Not.Nullable();
 
-            HasManyToMany(x => x.Livros);
+            HasManyToMany(x => x.Livros).AsBag().Table("tb_livros_autor")
+    .LazyLoad().Cascade.SaveUpdate();
         }
     }
 }
