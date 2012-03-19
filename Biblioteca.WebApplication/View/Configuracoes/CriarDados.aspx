@@ -35,13 +35,13 @@
                 style="cursor: pointer" title="Salvar" />
             <br />
             Estante:
-            <select id="DropDownListEstante" title="Selecionar a Estante" >
+            <select id="DropDownListEstante" title="Selecionar a Estante">
             </select>
         </div>
     </div>
     <br />
     <img src="../../img/back.png" id="ImageButtonVoltar" align="Top" width="24" height="24"
-                style="cursor: pointer" title="Voltar" /><br />
+        style="cursor: pointer" title="Voltar" /><br />
     <script src="../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
     <script src="../../Scripts/jquery.noty.js" type="text/javascript"> </script>
     <script type="text/javascript">
@@ -91,23 +91,28 @@
             var dados = {
                 Autor: $("#txbAutor").val()
             };
+            if ($("#txbAutor").val() != '') {
+                var request = $.ajax({
+                    type: "POST",
+                    url: "CriarDados.aspx?InserirAutor=1",
+                    clearForm: true,
+                    data: dados
+                });
 
-            var request = $.ajax({
-                type: "POST",
-                url: "CriarDados.aspx?InserirAutor=1",
-                clearForm: true,
-                data: dados
-            });
+                request.done(function (data) {
+                    $("#divResultado").html(data);
+                    noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                    $("#txbAutor").val('');
+                });
 
-            request.done(function (data) {
-                $("#divResultado").html(data);
-                noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-                //$("#txbAutor").val('');
-            });
+                request.fail(function (jqXHR, textStatus) {
+                    noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                });
 
-            request.fail(function (jqXHR, textStatus) {
-                noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-            });
+            } 
+            else {
+                noty({ "text": "Informe o nome do livro", "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "3000", "closable": true, "closeOnSelfClick": true });
+            }
         });
 
         $("#ImageInsEstante").click(function () {
@@ -116,23 +121,28 @@
                 Categoria: $("#txbEstante").val()
             };
 
-            var request = $.ajax({
-                type: "POST",
-                url: "CriarDados.aspx?InserirEstante=1",
-                data: dados
-            });
+            if ($("#txbEstante").val() != '') {
+                var request = $.ajax({
+                    type: "POST",
+                    url: "CriarDados.aspx?InserirEstante=1",
+                    data: dados
+                });
 
-            request.done(function (data) {
-                CarregarLista();
-                $("#divResultado").html(data);
-                noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-                $("#txbEstante").val('');
+                request.done(function (data) {
+                    CarregarLista();
+                    $("#divResultado").html(data);
+                    noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                    $("#txbEstante").val('');
+                });
 
-            });
+                request.fail(function (jqXHR, textStatus) {
+                    noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                });
 
-            request.fail(function (jqXHR, textStatus) {
-                noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-            });
+            } 
+            else {
+                noty({ "text": "Informe a descrição da estante", "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "3000", "closable": true, "closeOnSelfClick": true });
+            }
         });
 
         $("#ImageInsPrateleira").click(function () {
@@ -142,22 +152,29 @@
                 Classe: $("#txbPrateleira").val()
             };
 
-            var request = $.ajax({
-                type: "POST",
-                url: "CriarDados.aspx?InserirPrateleira=1",
-                data: dados
-            });
+            if ($("#txbPrateleira").val() != '') {
 
-            request.done(function (data) {
-                $("#divResultado").html(data);
-                noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-                $("#txbPrateleira").val('');
-                $("#DropDownListEstante").val('');
-            });
+                var request = $.ajax({
+                    type: "POST",
+                    url: "CriarDados.aspx?InserirPrateleira=1",
+                    data: dados
+                });
 
-            request.fail(function (jqXHR, textStatus) {
-                noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
-            });
+                request.done(function (data) {
+                    $("#divResultado").html(data);
+                    noty({ "text": "Salvo com Sucesso!!!", "layout": "bottom", "type": "success", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                    $("#txbPrateleira").val('');
+                    $("#DropDownListEstante").val('');
+                });
+
+                request.fail(function (jqXHR, textStatus) {
+                    noty({ "text": "Request failed: " + textStatus, "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "5000", "closable": true, "closeOnSelfClick": true });
+                });
+
+            } 
+            else {
+                noty({ "text": "Informe a descrição da prateleira", "layout": "bottom", "type": "error", "textAlign": "center", "easing": "swing", "animateOpen": { "height": "toggle" }, "animateClose": { "height": "toggle" }, "speed": "500", "timeout": "3000", "closable": true, "closeOnSelfClick": true });
+            }
         });
 
         $("#ImageButtonVoltar").click(function () {
