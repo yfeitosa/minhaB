@@ -104,7 +104,7 @@
         };
 
         $(document).ready(function () {
-            $('.tgl').before('<img id="imagesExample" tooltip="Exibir grid" src="../img/search.gif" style="cursor:pointer"></img>');
+            $('.tgl').before('<img id="imagesExample" title="Exibir grid" src="../img/search.gif" style="cursor:pointer"></img>');
             $('.tgl').css('display', 'none');
             //$('.tgl').css('cursor', 'pointer');
             $('#imagesExample', '#box-toggle').click(function () {

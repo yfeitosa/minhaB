@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <title></title>
+    <script language="JavaScript" src="../Scripts/qTip.js" type="text/JavaScript"></script>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/jquery.noty.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">

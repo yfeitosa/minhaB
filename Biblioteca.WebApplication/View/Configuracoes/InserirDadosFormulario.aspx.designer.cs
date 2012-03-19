@@ -13,15 +13,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes {
     public partial class InserirDadosFormulario {
         
         /// <summary>
-        /// txbLivro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbLivro;
-        
-        /// <summary>
         /// DropDownListAutor control.
         /// </summary>
         /// <remarks>
@@ -31,15 +22,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListAutor;
         
         /// <summary>
-        /// ButtonCriarAutor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCriarAutor;
-        
-        /// <summary>
         /// DropDownListPrateleira control.
         /// </summary>
         /// <remarks>
@@ -47,14 +29,5 @@ namespace Biblioteca.WebApplication.View.Configuracoes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListPrateleira;
-        
-        /// <summary>
-        /// ButtonCriarPrateleira control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCriarPrateleira;
     }
 }

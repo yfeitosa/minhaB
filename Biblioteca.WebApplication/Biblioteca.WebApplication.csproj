@@ -86,6 +86,7 @@
     <Content Include="img\view_text.png" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.noty.js" />
+    <Content Include="Scripts\qTip.js" />
     <Content Include="Styles\jquery.noty.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />

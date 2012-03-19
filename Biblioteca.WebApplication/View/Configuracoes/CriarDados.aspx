@@ -12,34 +12,38 @@
             Autor</h3>
         <div class="tgl">
             Nome do Autor:
-            <input type="text" id="txbAutor" />
-            <input type="button" id="btInsAutor" value="Salvar" />
+            <input type="text" id="txbAutor" title="Nome do Autor" />
+            <img src="../../img/save-as.png" id="ImageInsAutor" align="Top" width="24" height="24"
+                style="cursor: pointer" title="Salvar" />
         </div>
         <br />
         <h3>
             Estante</h3>
         <div class="tgl">
             Categoria:
-            <input type="text" id="txbEstante" />
-            <input type="button" id="btInsEstante" value="Salvar" />
+            <input type="text" id="txbEstante" title="Categoria da Estante" />
+            <img src="../../img/save-as.png" id="ImageInsEstante" align="Top" width="24" height="24"
+                style="cursor: pointer" title="Salvar" />
         </div>
         <br />
         <h3>
             Prateleira</h3>
         <div class="tgl">
             Classe:
-            <asp:TextBox ID="txbPrateleira" runat="server"></asp:TextBox>
-            <input type="button" id="btInsPrateleira" value="Salvar" />
+            <asp:TextBox ID="txbPrateleira" runat="server" title="Classe da Prateleira"></asp:TextBox>
+            <img src="../../img/save-as.png" id="ImageInsPrateleira" align="Top" width="24" height="24"
+                style="cursor: pointer" title="Salvar" />
             <br />
-            Estante
-            <select id="DropDownListEstante">
+            Estante:
+            <select id="DropDownListEstante" title="Selecionar a Estante" >
             </select>
         </div>
     </div>
-    <asp:Button ID="ButtonVoltar" runat="server" OnClick="ButtonVoltar_Click" Text="Voltar" />
     <br />
-    <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
-    <script src="././././../../Scripts/jquery.noty.js" type="text/javascript"> </script>
+    <img src="../../img/back.png" id="ImageButtonVoltar" align="Top" width="24" height="24"
+                style="cursor: pointer" title="Voltar" /><br />
+    <script src="../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
+    <script src="../../Scripts/jquery.noty.js" type="text/javascript"> </script>
     <script type="text/javascript">
         jQuery.fn.toggleText = function (a, b) {
             return this.html(this.html().replace(new RegExp("(" + a + "|" + b + ")"), function (x) { return (x == a) ? b : a; }));
@@ -48,7 +52,7 @@
         $(document).ready(function () {
             CarregarLista();
 
-            $('.tgl').before('<img id="imagesExample" tooltip="Exibir grid" src="././././../../img/view_text.png" style="cursor:pointer"></img>');
+            $('.tgl').before('<img id="imagesExample" title="Exibir formulário" src="../../img/view_text.png" style="cursor:pointer"></img>');
             $('.tgl').css('display', 'none');
             $('#imagesExample', '#box-toggle').click(function () {
                 $(this).next().slideToggle('slow')
@@ -82,7 +86,7 @@
 
         }
 
-        $("#btInsAutor").click(function () {
+        $("#ImageInsAutor").click(function () {
 
             var dados = {
                 Autor: $("#txbAutor").val()
@@ -106,7 +110,7 @@
             });
         });
 
-        $("#btInsEstante").click(function () {
+        $("#ImageInsEstante").click(function () {
 
             var dados = {
                 Categoria: $("#txbEstante").val()
@@ -131,7 +135,7 @@
             });
         });
 
-        $("#btInsPrateleira").click(function () {
+        $("#ImageInsPrateleira").click(function () {
 
             var dados = {
                 Estante: $("#DropDownListEstante").val(),
@@ -156,18 +160,9 @@
             });
         });
 
-        //        function AddItemInList() {
-        //            var list = document.getElementById('DropDownListEstante');
-        //            var box = document.getElementById('txbEstante');
-        //            var newListItem = document.createElement('OPTION');
-
-        //            newListItem.text = box.value;
-        //            newListItem.value = box.value;
-        //            list.add(newListItem);
-
-        //            box.value = "";
-        //            box.focus();
-        //        }
+        $("#ImageButtonVoltar").click(function () {
+            location.href = "InserirDadosFormulario.aspx";
+        });
         
     </script>
 </asp:Content>

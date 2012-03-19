@@ -59,13 +59,13 @@
         </tr>
     </table>
     <br />
-    <input type="button" id="btInsAutor" value="Criar DB" />
-    
+    <img src="../../img/save-as.png" id="ImageInsDadosForm" align="Top" width="24" height="24" style="cursor: pointer" title="Criar Banco de Dados"/>
+       
     <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
     <script src="././././../../Scripts/jquery.noty.js" type="text/javascript"> </script>
     <script type="text/javascript">
 
-        $("#btInsAutor").click(function () {
+        $("#ImageInsDadosForm").click(function () {
 
             var dados = {};
 

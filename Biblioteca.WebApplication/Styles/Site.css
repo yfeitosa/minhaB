@@ -1,11 +1,11 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
 
-body   
+body
 {
     background: #b6b7bc;
     font-size: .80em;
-    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
     color: #696969;
@@ -144,8 +144,8 @@ first child of the left and right table columns */
 
 div.hideSkiplink
 {
-    background-color:#3a4f63;
-    width:100%;
+    background-color: #3a4f63;
+    width: 100%;
 }
 
 div.menu
@@ -197,7 +197,7 @@ fieldset
     border: 1px solid #ccc;
 }
 
-fieldset p 
+fieldset p
 {
     margin: 2px 12px 10px 10px;
 }
@@ -207,25 +207,25 @@ fieldset.login label, fieldset.register label, fieldset.changePassword label
     display: block;
 }
 
-fieldset label.inline 
+fieldset label.inline
 {
     display: inline;
 }
 
-legend 
+legend
 {
     font-size: 1.1em;
     font-weight: 600;
     padding: 2px 4px 8px 4px;
 }
 
-input.textEntry 
+input.textEntry
 {
     width: 320px;
     border: 1px solid #ccc;
 }
 
-input.passwordEntry 
+input.passwordEntry
 {
     width: 320px;
     border: 1px solid #ccc;
@@ -250,12 +250,11 @@ div.accountInfo
     float: left;
     text-align: left;
     width: 100%;
-	z-index: 9999999;
-	background: url(../img/alert-lines.png) repeat-x scroll left top #fff;
+    z-index: 9999999;
+    background: url(../img/alert-lines.png) repeat-x scroll left top #fff;
     background-color: cornflowerblue;
-	color: darkcyan;
-	border-color: darkcyan;
-
+    color: darkcyan;
+    border-color: darkcyan;
 }
 
 .loginDisplay
@@ -297,4 +296,22 @@ div.accountInfo
 {
     text-align: right;
     padding-right: 10px;
+}
+
+
+/*****************************************/
+
+div#qTip
+{
+    padding: 3px;
+    border: 1px solid #666;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    display: none; /*background: #999;color: dodgerblue;*/
+    background: #999; 
+    color: #FFF;
+    font: bold 9px Verdana, Arial, sans-serif;
+    text-align: left;
+    position: absolute;
+    z-index: 1000;
 }
