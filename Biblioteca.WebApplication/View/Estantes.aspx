@@ -51,10 +51,10 @@
                 </asp:GridView>
             </div>
         </div>
-        <div style="float: left; padding-right: 4px; ">
+        <div style="float: left; padding-right: 4px;">
             <h4>
                 <strong>Autores</strong></h4>
-            <div class="tgl" style=position:fixed;">
+            <div class="tgl" style="position: fixed;">
                 <asp:GridView ID="grvAutores" runat="server" CellPadding="4" ForeColor="#333333"
                     GridLines="None" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />
@@ -97,6 +97,7 @@
         </div>
     </div>
     <script src="../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
+    <script src="../Scripts/jquery-1.7.2.js" type="text/javascript"> </script>
     <script src="../Scripts/jquery.noty.js" type="text/javascript"> </script>
     <script type="text/javascript">
         jQuery.fn.toggleText = function (a, b) {
